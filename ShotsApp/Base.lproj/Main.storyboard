@@ -70,6 +70,9 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="shareButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fft-2W-7JY"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5s-uD-1ke">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
@@ -136,14 +139,21 @@
                                         <state key="normal" backgroundImage="button-user">
                                             <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="userButtonDidPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BoA-jc-XMe"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KS-63-2hn" userLabel="Mask Button">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KS-63-2hn" userLabel="Mask Button">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="maskButtonDidPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UR2-bN-8al"/>
+                                        </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kc-Lt-6RC" userLabel="Popover View">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kc-Lt-6RC" userLabel="Popover View">
                                         <rect key="frame" x="130" y="73" width="170" height="141"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popover-bg" translatesAutoresizingMaskIntoConstraints="NO" id="byi-gR-Snd">
@@ -177,18 +187,117 @@
                                             <constraint firstAttribute="width" constant="170" id="tIg-yH-Oiq"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzk-6T-yZI" userLabel="Share View">
+                                        <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share-bg" translatesAutoresizingMaskIntoConstraints="NO" id="iE1-M0-V8U">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="uut-hO-sb8"/>
+                                                    <constraint firstAttribute="width" constant="320" id="ycq-mI-Hwp"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYJ-F8-tSS">
+                                                <rect key="frame" x="25" y="43" width="270" height="113"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H9Q-Am-4KR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="113"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggy-0Q-TY6">
+                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                                <state key="normal" backgroundImage="share-email"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AU9-Yr-jGf">
+                                                                <rect key="frame" x="0.0" y="90" width="90" height="23"/>
+                                                                <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="90" id="L72-WJ-dGn"/>
+                                                            <constraint firstAttribute="height" constant="113" id="kKQ-Vy-ejR"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="80l-TH-vCm">
+                                                        <rect key="frame" x="90" y="0.0" width="90" height="113"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA7-NY-43X">
+                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                                <state key="normal" backgroundImage="share-twitter"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jua-jg-QkC">
+                                                                <rect key="frame" x="0.0" y="90" width="90" height="23"/>
+                                                                <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="113" id="55E-6c-6Q0"/>
+                                                            <constraint firstAttribute="width" constant="90" id="FpH-dn-Zt8"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9pa-KA-aPz">
+                                                        <rect key="frame" x="180" y="0.0" width="90" height="113"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TY-Gc-qkT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                                <state key="normal" backgroundImage="share-facebook"/>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0db-aY-Bja">
+                                                                <rect key="frame" x="0.0" y="90" width="90" height="23"/>
+                                                                <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="113" id="beR-nO-4m7"/>
+                                                            <constraint firstAttribute="width" constant="90" id="jwk-OC-eUT"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsF-uf-4eR">
+                                                <rect key="frame" x="130" y="8" width="60" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="KSR-hs-x2S"/>
+                                                    <constraint firstAttribute="width" constant="60" id="TVz-x2-q4a"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="WYJ-F8-tSS" firstAttribute="centerY" secondItem="iE1-M0-V8U" secondAttribute="centerY" id="2JD-1y-xBn"/>
+                                            <constraint firstItem="WYJ-F8-tSS" firstAttribute="top" secondItem="EsF-uf-4eR" secondAttribute="bottom" constant="14" id="F4c-dh-AyV"/>
+                                            <constraint firstAttribute="bottom" secondItem="iE1-M0-V8U" secondAttribute="bottom" id="G2P-Yh-m1E"/>
+                                            <constraint firstItem="EsF-uf-4eR" firstAttribute="centerX" secondItem="rzk-6T-yZI" secondAttribute="centerX" id="ULK-sn-CxP"/>
+                                            <constraint firstAttribute="trailing" secondItem="iE1-M0-V8U" secondAttribute="trailing" id="ajx-kc-QOi"/>
+                                            <constraint firstItem="WYJ-F8-tSS" firstAttribute="centerX" secondItem="iE1-M0-V8U" secondAttribute="centerX" id="cUm-ww-YfF"/>
+                                            <constraint firstAttribute="height" constant="200" id="dwd-e2-zAe"/>
+                                            <constraint firstItem="iE1-M0-V8U" firstAttribute="leading" secondItem="rzk-6T-yZI" secondAttribute="leading" id="hxR-W5-S16"/>
+                                            <constraint firstAttribute="width" constant="320" id="uDo-44-u6g"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="CIq-4X-gQ2" firstAttribute="centerX" secondItem="maa-eh-5bx" secondAttribute="centerX" id="7KW-gj-wJO"/>
                                     <constraint firstAttribute="trailing" secondItem="4KS-63-2hn" secondAttribute="trailing" id="MtB-a4-pHH"/>
+                                    <constraint firstAttribute="trailing" secondItem="rzk-6T-yZI" secondAttribute="trailing" id="SQ0-ZP-vfm"/>
                                     <constraint firstAttribute="trailing" secondItem="FgI-6w-Azn" secondAttribute="trailing" constant="20" id="TK8-K1-ayd"/>
                                     <constraint firstItem="6kc-Lt-6RC" firstAttribute="top" secondItem="FgI-6w-Azn" secondAttribute="bottom" constant="13" id="b7X-cu-XZH"/>
                                     <constraint firstAttribute="trailing" secondItem="6kc-Lt-6RC" secondAttribute="trailing" constant="20" id="bKJ-L1-SpG"/>
                                     <constraint firstAttribute="bottom" secondItem="4KS-63-2hn" secondAttribute="bottom" id="beB-5R-9o4"/>
+                                    <constraint firstItem="rzk-6T-yZI" firstAttribute="leading" secondItem="maa-eh-5bx" secondAttribute="leading" id="dgr-Y9-Kh4"/>
                                     <constraint firstItem="CIq-4X-gQ2" firstAttribute="centerY" secondItem="maa-eh-5bx" secondAttribute="centerY" id="dzh-QS-DdZ"/>
                                     <constraint firstItem="4KS-63-2hn" firstAttribute="top" secondItem="maa-eh-5bx" secondAttribute="top" id="eSF-w7-Kwa"/>
                                     <constraint firstItem="FgI-6w-Azn" firstAttribute="top" secondItem="maa-eh-5bx" secondAttribute="top" constant="20" id="fLw-Y1-B5v"/>
+                                    <constraint firstAttribute="bottom" secondItem="rzk-6T-yZI" secondAttribute="bottom" id="nNh-Qk-nmA"/>
                                     <constraint firstItem="4KS-63-2hn" firstAttribute="leading" secondItem="maa-eh-5bx" secondAttribute="leading" id="nYh-dN-HnQ"/>
                                 </constraints>
                             </view>
@@ -206,10 +315,35 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="flt-Hv-Ndy" id="oEc-0h-vr6"/>
+                        <outlet property="avatarImageView" destination="r3q-dS-BHt" id="hxG-sP-3RZ"/>
+                        <outlet property="backgroundImageView" destination="oZg-lG-4KO" id="ZnN-S0-cKs"/>
+                        <outlet property="backgroundMaskView" destination="maa-eh-5bx" id="PLa-FA-Rvq"/>
+                        <outlet property="dialogView" destination="CIq-4X-gQ2" id="o2e-4H-diH"/>
+                        <outlet property="emailButton" destination="Ggy-0Q-TY6" id="j5z-Yt-111"/>
+                        <outlet property="emailLabel" destination="AU9-Yr-jGf" id="Gii-gv-tVU"/>
+                        <outlet property="facebookButton" destination="4TY-Gc-qkT" id="Hle-aI-mED"/>
+                        <outlet property="facebookLabel" destination="0db-aY-Bja" id="elU-v0-CBy"/>
+                        <outlet property="favoriesLabel" destination="3hP-q6-3XN" id="pgO-Ud-0G2"/>
+                        <outlet property="headerView" destination="P5s-uD-1ke" id="knz-KE-3sc"/>
+                        <outlet property="imageButton" destination="mKb-lB-HhI" id="FjM-di-N75"/>
+                        <outlet property="likeButton" destination="PVy-br-C2c" id="xDX-zm-uQb"/>
+                        <outlet property="maskButton" destination="4KS-63-2hn" id="Cxh-10-pnj"/>
+                        <outlet property="popverView" destination="6kc-Lt-6RC" id="TxJ-TI-er7"/>
+                        <outlet property="shareButton" destination="0ZZ-bs-qaM" id="pPe-Dx-TDL"/>
+                        <outlet property="shareLabel" destination="EsF-uf-4eR" id="Nnh-p2-pMA"/>
+                        <outlet property="shareView" destination="rzk-6T-yZI" id="TJR-LM-o3g"/>
+                        <outlet property="titleLabel" destination="yDq-PV-Da3" id="SMJ-Up-3dW"/>
+                        <outlet property="twitterButton" destination="NA7-NY-43X" id="ilb-FP-kYb"/>
+                        <outlet property="twitterLabel" destination="jua-jg-QkC" id="yGd-Xj-faY"/>
+                        <outlet property="userButton" destination="FgI-6w-Azn" id="BwB-4j-Lfw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="9HR-6q-vCg"/>
             </objects>
-            <point key="canvasLocation" x="305" y="365"/>
+            <point key="canvasLocation" x="186" y="347"/>
         </scene>
     </scenes>
     <resources>
@@ -223,5 +357,9 @@
         <image name="popover-profile" width="22" height="22"/>
         <image name="popover-shares" width="22" height="22"/>
         <image name="share" width="19" height="27"/>
+        <image name="share-bg" width="320" height="200"/>
+        <image name="share-email" width="90" height="90"/>
+        <image name="share-facebook" width="90" height="90"/>
+        <image name="share-twitter" width="90" height="90"/>
     </resources>
 </document>
